@@ -6,5 +6,6 @@ My local environment setup
 
 - Git
 - Ansible
+- Python
 
 All of the remaining dependencies should be installed automatically. Installing the requirements should also install it's dependencies.
