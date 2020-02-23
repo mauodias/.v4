@@ -10,9 +10,16 @@
 
 - name: Link dotfolders
   file:
-    src: "{{ item.root}}/{{ item.path }}"
+    src: "{{ item.root }}/{{ item.path }}"
     dest: "{{ ansible_user_dir }}/{{ item.path }}"
     state: link
     force: yes
   with_filetree: "files/"
   when: (item.path.split('/') | length == 1) and (item.state == 'directory')
+
+- name: Create link for original dotfiles
+  file:
+    src: "{{ playbook_dir }}/files"
+    dest: "{{ ansible_user_dir }}/dotfolder"
+    state: link
+    force: yes
