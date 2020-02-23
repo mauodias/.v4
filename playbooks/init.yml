@@ -1,0 +1,11 @@
+---
+- hosts: local
+  connection: local
+  roles:
+    - link_dotfiles
+  any_errors_fatal: true
+
+- hosts: remote
+  roles:
+    - copy_files
+  any_errors_fatal: true
