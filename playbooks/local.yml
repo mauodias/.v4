@@ -1,0 +1,6 @@
+---
+- hosts: all
+  connection: local
+  roles:
+    - link_dotfiles
+  any_errors_fatal: true

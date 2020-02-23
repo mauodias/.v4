@@ -1,0 +1,18 @@
+---
+- name: Link dotfiles
+  file:
+    src: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/{{ item | basename }}"
+    state: link
+  with_fileglob:
+  - "files/*"
+  - "files/.*"
+
+- name: Link dotfolders
+  file:
+    src: "{{ item.root}}/{{ item.path }}"
+    dest: "{{ ansible_user_dir }}/{{ item.path }}"
+    state: link
+    force: yes
+  with_filetree: "files/"
+  when: (item.path.split('/') | length == 1) and (item.state == 'directory')

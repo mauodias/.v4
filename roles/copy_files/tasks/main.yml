@@ -1,0 +1,6 @@
+---
+- name: Copy dotfiles to remote host
+  copy:
+    src: "files/"
+    dest: "{{ ansible_user_dir }}"
+    directory_mode: '0755'
