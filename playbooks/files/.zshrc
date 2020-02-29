@@ -12,6 +12,7 @@ plugins=(
   docker
   emoji
   gitignore
+  httpie
   python
   terraform
   vi-mode
