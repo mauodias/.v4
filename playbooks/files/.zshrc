@@ -42,6 +42,14 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[Up]}"      ]]  && bindkey   "${key[Up]}"       up-line-or-beginning-search
 [[ -n "${key[Down]}"    ]]  && bindkey   "${key[Down]}"    down-line-or-beginning-search
 
+# Fix PS1 not updating for virtualenv and direnv
+show_virtual_env() {
+    if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+        echo "($(basename $VIRTUAL_ENV)) "
+    fi
+}
+PS1='$(show_virtual_env)'$PS1
+
 # Extensions
 
 eval "$(direnv hook zsh)"
