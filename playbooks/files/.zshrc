@@ -15,7 +15,6 @@ plugins=(
   httpie
   python
   terraform
-  vi-mode
   z
 )
 

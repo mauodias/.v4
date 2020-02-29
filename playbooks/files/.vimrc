@@ -6,7 +6,7 @@ set showcmd
 nnoremap <leader>/ :set hlsearch!<cr>
 set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\ 
 set nofixendofline
-set backspace=indent,eol,start
+set backspace=indent,start
 colorscheme industry
 
 " Indentation
