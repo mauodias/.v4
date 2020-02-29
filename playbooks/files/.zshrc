@@ -2,7 +2,6 @@
 export ZSH="/Users/mauodias/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 HYPHEN_INSENSITIVE="true"
-COMPLETION_WAITING_DOTS="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
@@ -34,6 +33,14 @@ dotfiles () {
   sh -c "ansible-playbook -i local.ini playbooks/init.yml"
   cd -
 }
+
+autoload up-line-or-beginning-search
+autoload down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "${key[Up]}"      ]]  && bindkey   "${key[Up]}"       up-line-or-beginning-search
+[[ -n "${key[Down]}"    ]]  && bindkey   "${key[Down]}"    down-line-or-beginning-search
 
 # Extensions
 
