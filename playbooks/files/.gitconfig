@@ -12,9 +12,17 @@
         sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
         # the acronym stands for "subtree update"
         sbu = "!f() { git subtree pull --prefix $2 $1 master --squash; }; f"
+        # replace pull with pull --all
+        pull = pull --all
 [color]
 	ui = true
 [hub]
 	protocol = https
 [gpg]
 	program = gpg
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[url "ssh://git@gitlab.com/"]
+	insteadOf = https://gitlab.com/
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org/

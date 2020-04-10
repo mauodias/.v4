@@ -1,7 +1,7 @@
 # Exports
 export ZSH="/Users/mauodias/.oh-my-zsh"
+export PATH=$PATH:$HOME/.tools
 ZSH_THEME="robbyrussell"
-HYPHEN_INSENSITIVE="true"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
@@ -49,6 +49,27 @@ show_virtual_env() {
     fi
 }
 PS1='$(show_virtual_env)'$PS1
+
+# Setup repo CLIs
+if [[ -f $HOME/.github_token ]]
+then
+    export GITHUB_TOKEN=$(cat $HOME/.github_token)
+fi
+
+if [[ -f $HOME/.gitlab_token ]]
+then
+    export GITLAB_API_PRIVATE_TOKEN=$(cat $HOME/.gitlab_token)
+fi
+export GITLAB_API_ENDPOINT="https://gitlab.com/api/v4"
+
+# Custom functions
+
+for f in $HOME/.tools/functions/*; do
+  source $f
+done
+
+# Create vim swapfiles folder
+mkdir -p $HOME/.vim/swap
 
 # Extensions
 

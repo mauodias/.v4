@@ -1,0 +1,36 @@
+#!/bin/bash
+
+set_git_vars () {
+  export GIT_USER_NAME=$USER
+  export GIT_REPO_NAME=$(basename $(pwd))
+}
+
+set_git_remotes () {
+  git remote set-url origin --add https://gitlab.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
+  git remote add origin-gitlab https://gitlab.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
+}
+
+set_github_remotes () {
+  git remote set-url origin --add https://github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
+  git remote add origin-github https://github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
+}
+
+git_create () {
+  set_git_vars
+  git init
+  hub create
+  gitlab project create --name $GIT_REPO_NAME --visibility public
+  set_git_remotes
+}
+
+git_import () {
+  set_git_vars
+  set_git_remotes
+  set_github_remotes
+}
+
+git_readme_badges () {
+  set_git_vars
+  echo "[![Repo on GitHub](https://img.shields.io/badge/repo-GitHub-3D76C2.svg)](https://github.com/$GIT_USER_NAME/$GIT_REPO_NAME)
+[![Repo on GitLab](https://img.shields.io/badge/repo-GitLab-6C488A.svg)](https://gitlab.com/$GIT_USER_NAME/$GIT_REPO_NAME)" >> README.md
+}
