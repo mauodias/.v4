@@ -1,14 +1,21 @@
 " Basic configs
 set relativenumber
+set number
 syntax on
 set showcmd
+set laststatus=2
+
+" Highlight trailing spaces
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" Show trailing whitespace:
+match ExtraWhitespace /\s\+$/
 
 nnoremap <leader>/ :set hlsearch!<cr>
 set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\ 
 set nofixendofline
 set backspace=indent,start
 colorscheme industry
-set hlsearch
 
 " Indentation
 set expandtab
