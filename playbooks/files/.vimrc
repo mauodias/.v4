@@ -7,12 +7,12 @@ set laststatus=2
 
 " Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 " Show trailing whitespace:
 match ExtraWhitespace /\s\+$/
 
 nnoremap <leader>/ :set hlsearch!<cr>
-set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\ 
+set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\
 set nofixendofline
 set backspace=indent,start
 colorscheme industry
