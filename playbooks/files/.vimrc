@@ -12,7 +12,7 @@ autocmd ColorScheme * highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgree
 match ExtraWhitespace /\s\+$/
 
 nnoremap <leader>/ :set hlsearch!<cr>
-set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\
+set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\ 
 set nofixendofline
 set backspace=indent,start
 colorscheme industry
