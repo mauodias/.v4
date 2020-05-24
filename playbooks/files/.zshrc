@@ -1,6 +1,7 @@
 # Exports
 export ZSH="/Users/mauodias/.oh-my-zsh"
 export PATH=$PATH:$HOME/.tools
+export PYTHONDONTWRITEBYTECODE=1
 ZSH_THEME="robbyrussell"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
@@ -15,6 +16,7 @@ plugins=(
   httpie
   python
   terraform
+  zsh-docker-aliases
   z
 )
 
