@@ -3,6 +3,8 @@
 set_git_vars () {
   export GIT_USER_NAME=$USER
   export GIT_REPO_NAME=$(basename $(pwd))
+  export GIT_NAME="Maurício Dias"
+  export GIT_EMAIL="mauricio@mauricio.cc"
 }
 
 set_git_remotes () {
@@ -15,12 +17,17 @@ set_github_remotes () {
   git remote add origin-github https://github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git
 }
 
+config_user() {
+  
+}
+
 git_create () {
   set_git_vars
   git init
   hub create
   gitlab project create --name $GIT_REPO_NAME --visibility public
   set_git_remotes
+  config_user
 }
 
 git_import () {

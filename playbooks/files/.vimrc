@@ -4,6 +4,7 @@ set number
 syntax on
 set showcmd
 set laststatus=2
+set cursorline
 
 " Highlight trailing spaces
 highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
@@ -15,7 +16,7 @@ nnoremap <leader>/ :set hlsearch!<cr>
 set list listchars=precedes:<,extends:>,tab:\ \ ,trail:\ 
 set nofixendofline
 set backspace=indent,start
-colorscheme industry
+colorscheme slate
 
 " Indentation
 set expandtab

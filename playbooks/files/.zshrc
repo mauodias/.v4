@@ -2,7 +2,7 @@
 export ZSH="/Users/mauodias/.oh-my-zsh"
 export PATH=$PATH:$HOME/.tools
 export PYTHONDONTWRITEBYTECODE=1
-ZSH_THEME="robbyrussell"
+ZSH_THEME="classyTouch"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 plugins=(
@@ -16,8 +16,8 @@ plugins=(
   httpie
   python
   terraform
-  zsh-docker-aliases
   z
+  zsh-docker-aliases
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -51,6 +51,20 @@ show_virtual_env() {
     fi
 }
 PS1='$(show_virtual_env)'$PS1
+
+prompt_end() {
+  if [[ -n $CURRENT_BG ]]; then
+      print -n "%{%k%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR"
+  else
+      print -n "%{%k%}"
+  fi
+
+  print -n "%{%f%}"
+  CURRENT_BG=''
+
+  #Adds the new line and ➜ as the start character.
+  printf "\n> ";
+}
 
 # Setup repo CLIs
 if [[ -f $HOME/.github_token ]]
